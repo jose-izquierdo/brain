@@ -13,6 +13,9 @@ gem 'puma', '~> 5.0'
 # Serialization http://jsonapi-rb.org/guides/
 gem 'jsonapi-rails'
 
+# Finnhub
+gem 'finnhub_ruby', '~> 1.1.2'
+
 # Background
 gem 'redis-namespace'
 gem 'sidekiq'
