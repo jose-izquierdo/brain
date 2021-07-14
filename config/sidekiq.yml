@@ -1,0 +1,17 @@
+---
+  :concurrency: 5
+  staging:
+    :concurrency: 10
+  production:
+    :concurrency: 20
+  :queues:
+    - default
+    - [reading, 5]
+    - [writing, 3]
+  # :schedule:
+  #   delete_messages_from_database:
+  #     dynamic: true
+  #     cron: '30 23 * * SUN'
+  #     class: MessageWorkers::DeleteMessageFromDatabaseWorker
+  #     queue: cron_task
+  #     description: 'This worker deletes all messages selected from database'
