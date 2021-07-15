@@ -1,0 +1,168 @@
+AllCops:
+  TargetRubyVersion: 2.7.1
+  EnabledByDefault: true
+  Exclude:
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'config.ru'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'Rakefile'
+    - 'spec/services/message_services/query_spec.rb'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/Send:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: true
+  EnforcedStyle: if
+
+Style/RegexpLiteral:
+  Enabled: true
+  EnforcedStyle: slashes
+  AllowInnerSlashes: true
+
+Style/UnlessElse:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/ConstantVisibility:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/StringHashKeys:
+  Enabled: false
+
+Style/DateTime:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineBlockLayout:
+  Enabled: false
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 30
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 500
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 7
+
+# New cops
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Style/ClassMethodsDefinitions:
+  Enabled: false
+
+Style/ClassEqualityComparison:
+  Enabled: false
+
+Style/StaticClass:
+  Enabled: false
+
+Style/NegatedIfElseCondition:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: false
+
+Style/RedundantArgument:
+  Enabled: false
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Style/OptionHash:
+  Enabled: false
+
+Lint/SymbolConversion:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/DuplicateBranch:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false

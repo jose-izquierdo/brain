@@ -16,6 +16,10 @@ gem 'jsonapi-rails'
 # Finnhub
 gem 'finnhub_ruby', '~> 1.1.2'
 
+# Static analyzer and formatter for Ruby.
+# More info -> https://github.com/rubocop-hq/rubocop
+gem 'rubocop', '~> 1.9.0', require: false
+
 # Background
 gem 'redis-namespace'
 gem 'sidekiq'
