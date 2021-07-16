@@ -20,6 +20,9 @@ gem 'finnhub_ruby', '~> 1.1.2'
 gem 'redis-namespace'
 gem 'sidekiq'
 gem 'sidekiq-client-cli'
+# More info -> https://github.com/moove-it/sidekiq-scheduler
+gem 'sidekiq-scheduler'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

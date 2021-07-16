@@ -2,7 +2,7 @@
 
 module NewsWorkers
   class GetExternalNewsWorker < BaseWorker
-    sidekiq_options queue: :reading, retry: 3
+    sidekiq_options queue: :cron_task, retry: 3
 
     attr_reader :all_items, :formatted_items
 

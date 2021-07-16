@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe NewsWorkers::GetExternalNewsWorker, type: :worker do
-  it { is_expected.to be_processed_in :reading }
+  it { is_expected.to be_processed_in :cron_task }
   it { is_expected.to be_retryable 3 }
 
   it 'enqueues worker with correct params' do

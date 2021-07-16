@@ -8,10 +8,11 @@
     - default
     - [reading, 5]
     - [writing, 3]
-  # :schedule:
-  #   delete_messages_from_database:
-  #     dynamic: true
-  #     cron: '30 23 * * SUN'
-  #     class: MessageWorkers::DeleteMessageFromDatabaseWorker
-  #     queue: cron_task
-  #     description: 'This worker deletes all messages selected from database'
+    - [cron_task, 2]
+  :schedule:
+    get_news_from_external_resources:
+      dynamic: true
+      cron: '30 23 * * SUN'
+      class: NewsWorkers::GetExternalNewsWorker
+      queue: cron_task
+      description: 'This worker retrieves all news from external resources'
