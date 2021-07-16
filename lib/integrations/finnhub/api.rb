@@ -8,7 +8,7 @@ module Integrations
       end
 
       def configure_api
-        FinnhubRuby.configure { |config| config.api_key['token'] = 'c3ms5tqad3ieepc3uphg' }
+        FinnhubRuby.configure { |config| config.api_key['token'] = ENV['FINNHUB'] }
       end
 
       def initialize_api
