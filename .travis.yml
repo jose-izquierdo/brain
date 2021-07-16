@@ -4,11 +4,12 @@ cache:
   - yarn
 services:
   - postgresql
+before_install:
+  - bundle lock --add-platform x86_64-linux
 before_script:
   - bundle install --jobs=3 --retry=3
   - yarn
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
 script:
-  - rubocop
   - bundle exec rspec spec
