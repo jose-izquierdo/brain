@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 RSpec.configure do |config|
- config.before(:suite) do
+  config.before(:suite) do
     # Clean all tables to start
     DatabaseCleaner.clean_with :truncation
     # Use transactions for tests
