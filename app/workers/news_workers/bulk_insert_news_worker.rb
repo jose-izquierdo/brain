@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NewsWorkers
-  class SaveExternalNewsWorker < BaseWorker
+  class BulkInsertNewsWorker < BaseWorker
     sidekiq_options queue: :writing, retry: 3
 
     def perform(data)

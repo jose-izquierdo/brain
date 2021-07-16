@@ -4,45 +4,27 @@ module NewsWorkers
   class GetExternalNewsWorker < BaseWorker
     sidekiq_options queue: :reading, retry: 3
 
-    attr_reader :data, :formatted_data
+    attr_reader :all_items, :formatted_items
 
     def perform
-      @data = []
-      @formatted_data = []
+      @all_items = []
+      @formatted_items = []
 
       api_finnhub = Integrations::Finnhub::Api.new.initialize_api
-      News::TYPES.each do |type|
-        data.concat(api_finnhub.general_news(type))
-      end
+      News::TYPES.each { |type| all_items.concat(api_finnhub.general_news(type)) }
 
-      format_data
-      insert_data
+      set_items_format
+      exec_bulk_insert
     end
 
     private
 
-    def format_data
-      data.each do |d|
-        formatted_data.push(
-          {
-            category: d.category,
-            headline: d.headline,
-            image: d.image,
-            related: d.related,
-            source: d.source,
-            url: d.url,
-            publish_date: Time.at(d.datetime),
-            external_id: d.id,
-            summary: d.summary,
-            created_at: Time.now,
-            updated_at: Time.now
-          }
-        )
-      end
+    def set_items_format
+      all_items.each { |item| formatted_items.push(Utils::News::FormatDataStructure.new(item).formatted_news_item) }
     end
 
-    def insert_data
-      NewsWorkers::SaveExternalNewsWorker.perform_async(formatted_data)
+    def exec_bulk_insert
+      NewsWorkers::BulkInsertNewsWorker.perform_async(formatted_items)
     end
   end
 end
