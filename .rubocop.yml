@@ -1,5 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.7.1
+  SuggestExtensions: false
   EnabledByDefault: true
   Exclude:
     - 'config/**/*'
@@ -9,6 +10,7 @@ AllCops:
     - 'log/**/*'
     - 'spec/rails_helper.rb'
     - 'spec/spec_helper.rb'
+    - 'db/schema.rb'
     - 'config.ru'
     - 'Gemfile'
     - 'Gemfile.lock'

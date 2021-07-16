@@ -1,4 +1,6 @@
-RSpec.configure do |config|
+# frozen_string_literal: true
+
+RSpec.configure do
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       # Choose a test framework:
