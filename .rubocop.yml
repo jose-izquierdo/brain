@@ -12,6 +12,8 @@ AllCops:
     - 'config.ru'
     - 'Gemfile'
     - 'Gemfile.lock'
+    - 'vendor/**/*.rb'
+    - 'vendor/bundle/**/*'
     - 'Rakefile'
     - 'spec/services/message_services/query_spec.rb'
     - !ruby/regexp /old_and_unused\.rb$/
