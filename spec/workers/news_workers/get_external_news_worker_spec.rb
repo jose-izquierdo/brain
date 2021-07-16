@@ -13,18 +13,11 @@ RSpec.describe NewsWorkers::GetExternalNewsWorker, type: :worker do
 
   describe '.perform' do
     context 'when Finnhun API' do
-      before do
-        VCR.use_cassette('finnhub/get_general_news') do
-          described_class.new.perform
-        end
-      end
-
-      it 'should perform in the right queue' do
-        assert_equal :reading, described_class.queue
-      end
-
       it 'should enqueue BulkInsert worker' do
-        expect(NewsWorkers::BulkInsertNewsWorker.jobs.size).to eq 1
+        VCR.use_cassette('finnhub/get_general_news', match_requests_on: [:method]) do
+          described_class.new.perform
+          expect(NewsWorkers::BulkInsertNewsWorker.jobs.size).to eq 1
+        end
       end
     end
   end
