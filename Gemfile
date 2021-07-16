@@ -43,6 +43,8 @@ end
 
 group :test do
   gem 'rspec-sidekiq'
+  gem 'vcr'
+  gem 'webmock', require: nil
 end
 
 group :development do
