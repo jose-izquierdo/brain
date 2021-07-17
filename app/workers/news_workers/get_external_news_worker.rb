@@ -20,7 +20,9 @@ module NewsWorkers
     private
 
     def set_items_format
-      all_items.each { |item| formatted_items.push(Utils::News::FormatDataStructure.new(item).formatted_news_item) }
+      all_items.each {
+        |item| formatted_items.push(Utils::News::FormatDataStructure.new(item.to_hash).formatted_news_item)
+      }
     end
 
     def exec_bulk_insert

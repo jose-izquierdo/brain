@@ -4,67 +4,27 @@ module Utils
   module News
     class FormatDataStructure
       def initialize(item)
-        @item = item
+        @default_attributes = {
+          created_at: Time.now,
+          updated_at: Time.now,
+          publish_date: Time.at(item[:datetime])
+        }
+        @item = item.except(:datetime)
       end
 
+      attr_reader :item, :default_attributes
+
       def formatted_news_item
-        {
-          category: category,
-          headline: headline,
-          image: image,
-          related: related,
-          source: source,
-          url: url,
-          publish_date: publish_date,
-          external_id: external_id,
-          summary: summary,
-          created_at: set_current_time,
-          updated_at: set_current_time
-        }
+        default_attributes.merge(set_main_attributes)
       end
 
       private
 
-      attr_reader :item
+      def set_main_attributes
+        attributes = {}
+        item.each { |key, value| attributes[key] = value }
 
-      def category
-        item.category
-      end
-
-      def headline
-        item.headline
-      end
-
-      def image
-        item.image
-      end
-
-      def related
-        item.related
-      end
-
-      def source
-        item.source
-      end
-
-      def url
-        item.url
-      end
-
-      def publish_date
-        Time.at(item.datetime)
-      end
-
-      def external_id
-        item.id
-      end
-
-      def summary
-        item.summary
-      end
-
-      def set_current_time
-        Time.now
+        attributes
       end
     end
   end
