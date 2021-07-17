@@ -2,14 +2,14 @@
 
 FactoryBot.define do
   factory :news do
-    category { 'MyString' }
-    datetime { '' }
-    headline { 'MyString' }
-    external_id { 1 }
-    image { 'MyString' }
-    related { 'MyString' }
-    source { 'MyString' }
-    summary { 'MyText' }
-    url { 'MyString' }
+    category { Faker::Space.moon }
+    publish_date { Time.at(1596589501) }
+    headline { Faker::Lorem.sentence }
+    external_id { rand 7..500 }
+    image { Faker::Space.star }
+    related { Faker::Space.planet }
+    source { Faker::Space.agency }
+    summary { Faker::Lorem.paragraph }
+    url { "https://www.#{SecureRandom.hex(7)}.com" }
   end
 end
